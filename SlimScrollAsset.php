@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: PHPdev
- * Date: 01.07.2015
- * Time: 16:41
- */
-
 namespace kak\widgets\panel;
 
 use yii\web\AssetBundle;

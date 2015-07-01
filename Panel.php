@@ -24,7 +24,7 @@ class Panel extends Widget
 
     /** @var  string the panel-title */
     public $title;
-    public $height;
+    public $height = 200;
     public $content;
 
     public function init()
@@ -35,6 +35,15 @@ class Panel extends Widget
         if (!isset($this->options['class'])) {
             $this->options['class'] = 'panel panel-inverse';
         }
+
+
+        if($this->view)
+        {
+            $this->options['class'] .='slimScrollPanel';
+            $view = $this->getView();
+            SlimScrollAsset::register($view);
+        }
+
 
         echo Html::beginTag('div',$this->options);
             echo Html::beginTag('div',['class' => 'panel-heading']);
@@ -49,6 +58,9 @@ class Panel extends Widget
 
         echo Html::endTag('div');
         echo Html::endTag('div');
+
+
     }
+
 
 }
