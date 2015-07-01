@@ -2,7 +2,7 @@
     "name": "kak/panel",
     "description": "Yii2 panel widget",
     "type": "yii2-extension",
-	"homepage": "https://github.com/sanchezzzhak/kak-ckeditor",
+	"homepage": "https://github.com/sanchezzzhak/kak-panel",
     "keywords": ["yii2","panel bootstrap","panel for yii2" , "widget", "wysiwyg"],
     "license": "MIT",
     "authors": [
