@@ -37,15 +37,16 @@ class Panel extends Widget
         }
 
         echo Html::beginTag('div',$this->options);
-        echo Html::beginTag('div',['class' => 'panel-heading']);
-        echo Html::tag('h4',$this->title);
+            echo Html::beginTag('div',['class' => 'panel-heading']);
+                echo Html::tag('h4',$this->title);
+            echo Html::endTag('div');
         echo Html::beginTag('div',['class' => 'panel-body']);
-        echo $this->content;
+            echo $this->content;
     }
 
     public function run()
     {
-        echo Html::endTag('div');
+
         echo Html::endTag('div');
         echo Html::endTag('div');
     }
