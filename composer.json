@@ -1,0 +1,29 @@
+{
+    "name": "kak/panel",
+    "description": "Yii2 panel widget",
+    "type": "yii2-extension",
+	"homepage": "https://github.com/sanchezzzhak/kak-ckeditor",
+    "keywords": ["yii2","panel bootstrap","panel for yii2" , "widget", "wysiwyg"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tutik Alexsandr",
+            "email": "sanchezzzhak@ya.ru"
+        }
+    ],
+	"require": {
+		"php":">=5.4.0",
+        "bower-asset/font-awesome": "4.*@stable"
+	},
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+	"autoload": {
+		"psr-4": {
+			"kak\\widgets\\panel\\": ""
+		}
+	}
+}
