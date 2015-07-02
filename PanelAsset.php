@@ -8,7 +8,9 @@ class PanelAsset extends AssetBundle
         'yii\web\JqueryAsset'
     ];
 
+    public $js = [
+        'kak-panel.js'
+    ];
 
-
-
+    public $sourcePath = '@kak/widgets/panel/assets';
 } 

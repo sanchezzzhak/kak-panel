@@ -24,26 +24,12 @@ class Panel extends Widget
 
     /** @var  string the panel-title */
     public $title;
-    public $height = 200;
+    public $height;
     public $content;
 
     public function init()
     {
-        if (!isset($this->options['id'])) {
-            $this->options['id'] = $this->getId();
-        }
-        if (!isset($this->options['class'])) {
-            $this->options['class'] = 'panel panel-inverse';
-        }
-
-
-        if($this->view)
-        {
-            $this->options['class'] .='slimScrollPanel';
-            $view = $this->getView();
-            SlimScrollAsset::register($view);
-        }
-
+        $this->initOptions();
 
         echo Html::beginTag('div',$this->options);
             echo Html::beginTag('div',['class' => 'panel-heading']);
@@ -55,12 +41,26 @@ class Panel extends Widget
 
     public function run()
     {
-
         echo Html::endTag('div');
         echo Html::endTag('div');
-
-
     }
 
+
+    private function initOptions()
+    {
+        if (!isset($this->options['id'])) {
+            $this->options['id'] = $this->getId();
+        }
+        if (!isset($this->options['class'])) {
+            $this->options['class'] = ' panel panel-inverse';
+        }
+        $view = $this->getView();
+        if($this->options['data-height'] = $this->height ) {
+            $this->options['class'] .=' slimScrollPanel';
+            SlimScrollAsset::register($view);
+        }
+
+        PanelAsset::register($view);
+    }
 
 }
