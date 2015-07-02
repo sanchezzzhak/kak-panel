@@ -25,6 +25,7 @@ class Panel extends Widget
     /** @var  string the panel-title */
     public $title;
     public $height;
+    public $heading = true;
     public $content;
 
     public function init()
@@ -32,9 +33,10 @@ class Panel extends Widget
         $this->initOptions();
 
         echo Html::beginTag('div',$this->options);
-            echo Html::beginTag('div',['class' => 'panel-heading']);
-                echo Html::tag('h4',$this->title);
-            echo Html::endTag('div');
+
+        if($this->heading)
+            echo Html::tag('div', Html::tag('h4',$this->title), ['class' => 'panel-heading']);
+
         echo Html::beginTag('div',['class' => 'panel-body']);
             echo $this->content;
     }
