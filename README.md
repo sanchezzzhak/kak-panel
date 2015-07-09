@@ -24,8 +24,8 @@ Usage
 -----
 ```php
 <?php kak\widgets\panel\Panel::begin([
-    'title' =>  ($model->isNewRecord ? 'Create' : ' Update')  // title panel
-    'height' => 300 // 300px                                  //  if set height then init SlimScroll
+    'title' =>  ($model->isNewRecord ? 'Create' : ' Update'), // title panel
+    'height' => 300, // 300px                                 // is set height then init SlimScroll
     'heading' => true,                                        // show/hide title 
 ])?>
 <!-- content -->
@@ -38,4 +38,3 @@ Or
     'content' => ''
 ]);?>
 ```
-
