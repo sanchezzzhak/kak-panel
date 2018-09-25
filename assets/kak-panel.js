@@ -19,17 +19,13 @@
     // **********************************
 
     var isSlimPanel = typeof $.fn.slimScroll !== 'undefined';
-
     var kakPanel = function(element, options) {
         this.$parent = $(element)
-
         if (isSlimPanel){
             this.$parent.find('.slimScrollPanel').slimScroll({
-               // height: $(item).data('height') + 'px'
             });
         }
     };
-
     kakPanel.prototype = {
         constructor: kakPanel
     };
@@ -45,18 +41,4 @@
     $('.kak-panel').each(function(k,i){
         $(i).kakPanel();
     });
-
 }));
-
-
-/*
-(function($){
-    if(typeof $.fn.slimScroll !== 'undefined') {
-        $.each($('.slimScrollPanel'), function(k,item) {
-            $(item).find('.panel-body').slimScroll({
-                height: $(item).data('height') +'px'
-            });
-
-        });
-    }
-})(jQuery);*/

@@ -23,17 +23,21 @@ to the require section of your `composer.json` file.
 Usage
 -----
 ```php
-<?php kak\widgets\panel\Panel::begin([
+<?php
+    use kak\widgets\panel\Panel;
+?>
+<?php Panel::begin([
     'title' =>  ($model->isNewRecord ? 'Create' : ' Update'), // title panel
-    'height' => 300, // 300px                                 // is set height then init SlimScroll
-    'heading' => true,                                        // show/hide title 
+    'slimOptions' => [], // slim scroll data-attr
+    'options' => [], // attr tag panel
+    'heading' => true,
 ])?>
 <!-- content -->
-<?php kak\widgets\panel\Panel::end();?>
+<?php Panel::end();?>
 ```
 Or
 ```php 
-<?=kak\widgets\panel\Panel::widget([
+<?=Panel::widget([
     'title' => 'title panel',
     'content' => ''
 ]);?>
