@@ -1,0 +1,46 @@
+.kak-panel {
+
+  .panel-heading {
+    display: flex;
+  }
+
+  .header--columns {
+    display: flex;
+    background: red;
+    min-width: 120px;
+    justify-content: flex-end;
+  }
+  .header--title {
+    display: flex;
+    flex-flow: wrap;
+    align-items: baseline;
+    width: 100%;
+    flex-wrap: nowrap;
+    flex: 1 100%;
+
+    i+h4 {
+      padding-left: 10px;
+    }
+  }
+
+  .header--burger {
+    width: 20px;
+    span {
+      width: 100%;
+    }
+  }
+  button {
+    &:focus, &:focus-visible, &:active {
+      outline: none;
+    }
+  }
+
+  &.panel-inverse {
+    .header--columns {
+      button {
+        color: black;
+      }
+    }
+  }
+
+}
