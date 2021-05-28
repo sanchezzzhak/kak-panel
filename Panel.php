@@ -39,6 +39,8 @@ class Panel extends Widget
     public $content;
     /** @var string header panel */
     public $header;
+    /** @var string header icon */
+    public $headerIcon = '';
     /** @var string footer panel */
     public $footer;
     /** @var bool is use slimScroll */
@@ -46,13 +48,24 @@ class Panel extends Widget
     /** @var array the slimScroll HTML attributes */
     public $slimOptions = [];
 
+    public $headerColumn = '';
+
+
     public function init()
     {
         $this->initOptions();
 
         echo Html::beginTag('div', $this->options);
         if ($this->heading) {
-            echo Html::tag('div', Html::tag('h4', $this->title) . $this->header, ['class' => self::CSS_CLASS_HEADER]);
+            echo Html::tag('div',
+                sprintf(
+                    '<div class="header--title">%s %s</div><div class="header--columns">%s</div>',
+                    Html::tag('h4',          $this->renderHeaderIcon() . $this->title),
+                    $this->header,
+                    $this->headerColumn
+                ), [
+                    'class' => self::CSS_CLASS_HEADER
+                ]);
         }
 
         Html::addCssClass($this->bodyOptions, self::CSS_CLASS_BODY);
@@ -70,13 +83,30 @@ class Panel extends Widget
         echo Html::endTag('div');
     }
 
-    protected function prepareOptionsToAttr($attrName, $options = [])
+    protected function renderHeaderIcon()
+    {
+        $hasWrapTag = strpos($this->headerIcon, '<') === false;
+        if ($hasWrapTag) {
+            return Html::tag('i', '', ['class' => $this->headerIcon]);
+        }
+        return $this->headerIcon;
+    }
+
+
+    protected function renderMenuHamburger() {
+        return
+            Html::tag('button', '<i class="glyphicon glyphicon-align-justify"></i>', [
+               'class' => 'btn btn-back btn-xs'
+            ]);
+    }
+    
+
+    protected function appendPrefixOptions($attrName, $options = [])
     {
         $strArr = [];
         foreach ($options as $key => $option) {
             $strArr["{$attrName}-{$key}"] = $option;
         }
-
         return $strArr;
     }
 
@@ -85,7 +115,10 @@ class Panel extends Widget
         $view = $this->getView();
 
         if ($this->slimScroll) {
-            $this->bodyOptions = ArrayHelper::merge($this->bodyOptions, $this->prepareOptionsToAttr('data-slim', $this->slimOptions));
+            $this->bodyOptions = ArrayHelper::merge(
+                $this->bodyOptions,
+                $this->appendPrefixOptions('data-slim', $this->slimOptions)
+            );
             Html::addCssClass($this->bodyOptions, 'slimScrollPanel');
             SlimScrollAsset::register($view);
         }

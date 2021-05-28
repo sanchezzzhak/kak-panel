@@ -1,0 +1,23 @@
+.kak-panel .panel-heading {
+  display: flex; }
+.kak-panel .header--columns {
+  display: flex;
+  min-width: 120px;
+  justify-content: flex-end; }
+.kak-panel .header--title {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex: 1 100%; }
+  .kak-panel .header--title h4 i {
+    padding-right: 5px; }
+.kak-panel .header--burger {
+  width: 20px; }
+  .kak-panel .header--burger span {
+    width: 100%; }
+.kak-panel button:focus, .kak-panel button:focus-visible, .kak-panel button:active {
+  outline: none; }
+
+/*# sourceMappingURL=panel.css.map */
