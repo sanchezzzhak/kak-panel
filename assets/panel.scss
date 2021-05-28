@@ -6,20 +6,19 @@
 
   .header--columns {
     display: flex;
-    background: red;
     min-width: 120px;
     justify-content: flex-end;
   }
   .header--title {
     display: flex;
     flex-flow: wrap;
-    align-items: baseline;
+    align-items: center;
     width: 100%;
     flex-wrap: nowrap;
     flex: 1 100%;
 
-    i+h4 {
-      padding-left: 10px;
+    h4 i {
+      padding-right: 5px;
     }
   }
 
@@ -32,14 +31,6 @@
   button {
     &:focus, &:focus-visible, &:active {
       outline: none;
-    }
-  }
-
-  &.panel-inverse {
-    .header--columns {
-      button {
-        color: black;
-      }
     }
   }
 

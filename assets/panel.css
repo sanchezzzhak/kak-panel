@@ -2,25 +2,22 @@
   display: flex; }
 .kak-panel .header--columns {
   display: flex;
-  background: red;
   min-width: 120px;
   justify-content: flex-end; }
 .kak-panel .header--title {
   display: flex;
   flex-flow: wrap;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
   flex-wrap: nowrap;
   flex: 1 100%; }
-  .kak-panel .header--title i + h4 {
-    padding-left: 10px; }
+  .kak-panel .header--title h4 i {
+    padding-right: 5px; }
 .kak-panel .header--burger {
   width: 20px; }
   .kak-panel .header--burger span {
     width: 100%; }
 .kak-panel button:focus, .kak-panel button:focus-visible, .kak-panel button:active {
   outline: none; }
-.kak-panel.panel-inverse .header--columns button {
-  color: black; }
 
 /*# sourceMappingURL=panel.css.map */

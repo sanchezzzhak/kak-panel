@@ -48,7 +48,8 @@ class Panel extends Widget
     /** @var array the slimScroll HTML attributes */
     public $slimOptions = [];
 
-    public $headerColumn = '{menu}';
+    public $headerColumn = '';
+
 
     public function init()
     {
@@ -58,11 +59,10 @@ class Panel extends Widget
         if ($this->heading) {
             echo Html::tag('div',
                 sprintf(
-                    '<div class="header--title">%s %s %s</div><div class="header--columns">%s</div>',
-                    $this->renderHeaderIcon(),
-                    Html::tag('h4', $this->title),
+                    '<div class="header--title">%s %s</div><div class="header--columns">%s</div>',
+                    Html::tag('h4',          $this->renderHeaderIcon() . $this->title),
                     $this->header,
-                    $this->renderColumn()
+                    $this->headerColumn
                 ), [
                     'class' => self::CSS_CLASS_HEADER
                 ]);
@@ -99,18 +99,7 @@ class Panel extends Widget
                'class' => 'btn btn-back btn-xs'
             ]);
     }
-
-    protected function renderMenu() {
-        return $this->renderMenuHamburger();
-    }
-
-
-    protected function renderColumn()
-    {
-        return strtr($this->headerColumn, [
-            '{menu}' => $this->renderMenu(),
-        ]);
-    }
+    
 
     protected function appendPrefixOptions($attrName, $options = [])
     {
