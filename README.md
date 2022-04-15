@@ -6,13 +6,12 @@ Install
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 Either run
-
 ```
-php composer.phar require kak/panel "@dev"
+php composer.phar require kak/panel "^1.0.2"
 ```
 or add 
 ```
-"kak/panel": "@dev"
+"kak/panel": "^1.0"
 ```
 to the require section of your `composer.json` file.
 
@@ -20,7 +19,13 @@ Usage
 -----
 ```php
 <?php
-    use kak\widgets\panel\Panel;
+
+use kak\widgets\panel\Panel;
+/**
+* @var app\models\Post $model   
+* @var yii2\web\View $this 
+*/
+
 ?>
 <?php Panel::begin([
     'title' =>  ($model->isNewRecord ? 'Create' : ' Update'), // title panel
@@ -32,11 +37,13 @@ Usage
 <?php Panel::end()?>
 ```
 Or
+
 ```php 
+
 <?= Panel::widget([
     'title' => 'title panel',
-    'content' => ''
+    'content' => 'html content'
 ])?>
+
 ```
-Options
-----
+
