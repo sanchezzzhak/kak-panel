@@ -1,1 +1,7 @@
 .sass-cache
+.idea/
+composer.lock
+vendor/
+tests/_output/*
+tests/_config/clickhouse.php
+tests/_support/_generated/*

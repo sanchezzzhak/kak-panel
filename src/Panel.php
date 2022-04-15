@@ -60,7 +60,7 @@ class Panel extends Widget
             echo Html::tag('div',
                 sprintf(
                     '<div class="header--title">%s %s</div><div class="header--columns">%s</div>',
-                    Html::tag('h4',          $this->renderHeaderIcon() . $this->title),
+                    Html::tag('h4', $this->renderHeaderIcon() . $this->title),
                     $this->header,
                     $this->headerColumn
                 ), [
@@ -86,20 +86,21 @@ class Panel extends Widget
     protected function renderHeaderIcon()
     {
         $hasWrapTag = strpos($this->headerIcon, '<') === false;
-        if ($hasWrapTag) {
+        if ($hasWrapTag && $this->headerIcon !== '') {
             return Html::tag('i', '', ['class' => $this->headerIcon]);
         }
         return $this->headerIcon;
     }
 
 
-    protected function renderMenuHamburger() {
+    protected function renderMenuHamburger()
+    {
         return
             Html::tag('button', '<i class="glyphicon glyphicon-align-justify"></i>', [
-               'class' => 'btn btn-back btn-xs'
+                'class' => 'btn btn-back btn-xs'
             ]);
     }
-    
+
 
     protected function appendPrefixOptions($attrName, $options = [])
     {
