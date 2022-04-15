@@ -4,7 +4,7 @@ use yii\web\AssetBundle;
 
 class PanelAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/kak/panel/assets';
+    public $sourcePath = '@vendor/kak/panel/src/assets';
     
     public $depends = [
         'yii\web\JqueryAsset'
