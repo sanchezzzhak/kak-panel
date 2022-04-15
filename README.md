@@ -7,7 +7,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 
 Either run
 ```
-php composer.phar require kak/panel "^1.0.2"
+php composer.phar require kak/panel "^1.0"
 ```
 or add 
 ```
@@ -32,6 +32,8 @@ use kak\widgets\panel\Panel;
     'slimOptions' => [], // slim scroll data-attr
     'options' => [], // attr tag panel
     'heading' => true,
+    'headerColumn' => 'string content',
+    'headerIcon' => 'string classes or html tag content'
 ])?>
 <!-- content -->
 <?php Panel::end()?>
