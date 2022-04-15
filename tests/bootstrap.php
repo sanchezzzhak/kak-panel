@@ -9,5 +9,5 @@ require_once $yiiGitHub;
 require_once $autoloadGitHub;
 
 Yii::setAlias('@tests', __DIR__);
-Yii::setAlias('@vendor/kak/panel/assets', __DIR__ . '/../src/assets');
+Yii::setAlias('@vendor/kak/panel/src/assets', __DIR__ . '/../src/assets');
 Yii::setAlias('@data', __DIR__ . DIRECTORY_SEPARATOR . '_data');
