@@ -47,43 +47,55 @@ class Panel extends Widget
     public $slimScroll = false;
     /** @var array the slimScroll HTML attributes */
     public $slimOptions = [];
-
+    /** @var string additional column html */
     public $headerColumn = '';
+    /** @var string icon + title wrap to tag */
+    public $headerTag = 'h4';
+    /** @var string template for header */
+    public $templateHeader = '<div class="header--title">{title} {header}</div><div class="header--columns">{columns}</div>';
 
-
+    /**
+     * begin wrap content
+     */
     public function init()
     {
         $this->initOptions();
-
         echo Html::beginTag('div', $this->options);
         if ($this->heading) {
-            echo Html::tag('div',
-                sprintf(
-                    '<div class="header--title">%s %s</div><div class="header--columns">%s</div>',
-                    Html::tag('h4', $this->renderHeaderIcon() . $this->title),
-                    $this->header,
-                    $this->headerColumn
-                ), [
-                    'class' => self::CSS_CLASS_HEADER
-                ]);
+            echo $this->renderHeader();
         }
-
-        Html::addCssClass($this->bodyOptions, self::CSS_CLASS_BODY);
         echo Html::beginTag('div', $this->bodyOptions);
         echo $this->content;
     }
 
+    protected function renderHeader(): string
+    {
+        return Html::tag('div',
+            strtr($this->templateHeader, [
+                '{icon}' => $this->renderHeaderIcon(),
+                '{title}' => Html::tag($this->headerTag, $this->renderHeaderIcon() . $this->title),
+                '{header}' => $this->header,
+                '{columns}' => $this->headerColumn,
+            ]));
+    }
+
+    /**
+     * end wrap content
+     */
     public function run()
     {
         echo Html::endTag('div');
         if (!empty($this->footer)) {
             echo Html::tag('div', $this->footer, ['class' => self::CSS_CLASS_FOOTER]);
         }
-
         echo Html::endTag('div');
     }
 
-    protected function renderHeaderIcon()
+    /**
+     * render icon or html tag icon
+     * @return string
+     */
+    protected function renderHeaderIcon(): string
     {
         $hasWrapTag = strpos($this->headerIcon, '<') === false;
         if ($hasWrapTag && $this->headerIcon !== '') {
@@ -92,17 +104,7 @@ class Panel extends Widget
         return $this->headerIcon;
     }
 
-
-    protected function renderMenuHamburger()
-    {
-        return
-            Html::tag('button', '<i class="glyphicon glyphicon-align-justify"></i>', [
-                'class' => 'btn btn-back btn-xs'
-            ]);
-    }
-
-
-    protected function appendPrefixOptions($attrName, $options = [])
+    protected function appendPrefixOptions($attrName, $options = []): array
     {
         $strArr = [];
         foreach ($options as $key => $option) {
@@ -111,9 +113,14 @@ class Panel extends Widget
         return $strArr;
     }
 
-    private function initOptions()
+    /**
+     * init base options
+     */
+    protected function initOptions(): void
     {
         $view = $this->getView();
+
+        Html::addCssClass($this->bodyOptions, self::CSS_CLASS_BODY);
 
         if ($this->slimScroll) {
             $this->bodyOptions = ArrayHelper::merge(

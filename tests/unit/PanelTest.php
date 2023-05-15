@@ -10,7 +10,6 @@ use yii\web\View;
  */
 class PanelTest extends Unit
 {
-    public $appConfig = '@tests/_config/unit.php';
 
     /**
      * @var \UnitTester
@@ -109,4 +108,5 @@ class PanelTest extends Unit
             (bool)preg_match('~<div class="header--title"><h4><i class="fa-duotone fa-camera-retro"></i>title panel</h4>~i', $content)
         );
     }
+
 }

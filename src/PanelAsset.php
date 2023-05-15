@@ -4,8 +4,6 @@ use yii\web\AssetBundle;
 
 class PanelAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/kak/panel/src/assets';
-    
     public $depends = [
         'yii\web\JqueryAsset'
     ];
@@ -17,5 +15,11 @@ class PanelAsset extends AssetBundle
     public $css = [
         'panel.css'
     ];
+
+    public function init()
+    {
+        $this->sourcePath  = __DIR__ . '/assets';
+        parent::init();
+    }
 
 } 

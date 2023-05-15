@@ -1,17 +1,13 @@
 actor: Tester
-bootstrap: bootstrap.php
+bootstrap: _bootstrap.php
 paths:
   tests: tests
-  log: tests/_output
+  output: tests/_output
   data: tests/_data
-  support: tests/_support
-  envs: tests/_envs
+  helpers: tests/_support
 settings:
-  colors: false
   memory_limit: 1024M
-extensions:
-  enabled:
-    - Codeception\Extension\RunFailed
+  colors: true
 modules:
   config:
     Yii2:
