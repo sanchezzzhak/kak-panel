@@ -22,7 +22,6 @@
     "yiisoft/yii2-bootstrap": "^2.0"
   },
   "require-dev": {
-    "php": ">=7.1",
     "codeception/codeception": "^5.0.0 || 4.1.*",
     "phpunit/phpunit": "^9.5",
     "codeception/module-asserts": "^3.0 || ^1.1",
