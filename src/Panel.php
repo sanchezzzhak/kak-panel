@@ -68,6 +68,10 @@ class Panel extends Widget
         echo $this->content;
     }
 
+    /**
+     * render header html
+     * @return string
+     */
     protected function renderHeader(): string
     {
         return Html::tag('div',
