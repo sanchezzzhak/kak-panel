@@ -80,7 +80,9 @@ class Panel extends Widget
                 '{title}' => Html::tag($this->headerTag, $this->renderHeaderIcon() . $this->title),
                 '{header}' => $this->header,
                 '{columns}' => $this->headerColumn,
-            ]));
+            ]), [
+                'class' => 'panel-heading'
+            ]);
     }
 
     /**

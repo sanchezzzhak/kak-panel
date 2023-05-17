@@ -1,5 +1,10 @@
 .kak-panel {
 
+  &.panel-inverse > .panel-heading {
+    background: #0e0e0e;
+    color: #fff;
+  }
+
   .panel-heading {
     display: flex;
   }
